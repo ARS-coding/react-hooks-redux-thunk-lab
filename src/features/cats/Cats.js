@@ -12,9 +12,11 @@ function Cats() {
   }, [dispatch])
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <h1>CatBook</h1>
-      <CatList catPics={catPics} />
+      <div className="row">
+        <CatList catPics={catPics} />
+      </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { composeWithDevTools } from "redux-devtools-extension"
 import catsReducer from "./features/cats/catsSlice";
 
 import App from "./App";
+import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
