@@ -12,7 +12,7 @@ const initialState = {
     status: "idle"
 };
 
-export default function catsReducer(state, action) {
+export default function catsReducer(state = initialState, action) {
     switch(action.type) {
         case "cats/catsLoading": // just pass an aciton with the corresponding type 
             return {
@@ -26,5 +26,7 @@ export default function catsReducer(state, action) {
                 entities: action.payload,
                 status: "idle"
             };
+        default:
+            return state;
     };
 };
