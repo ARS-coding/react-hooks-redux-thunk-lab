@@ -1,4 +1,11 @@
-export function fetchCats() {}
+export function fetchCats() {
+    return (dispatch) => {
+        dispatch({ type: "cats/catsLoading" }); // let the store know that we are data is loading
+        fetch("https://learn-co-curriculum.github.io/cat-api/cats.json")
+            .then(response => response.json())
+            .then(json => dispatch({ type: "cats/catsLoading", payload: json.images }))
+    }
+}
 
 const initialState = {
     entities: [],
