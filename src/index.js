@@ -4,12 +4,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension"
 import catsReducer from "./features/cats/catsSlice";
 
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const store = createStore(catsReducer, applyMiddleware(thunkMiddleware))
+const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
+const store = createStore(catsReducer, composedEnhancer)
 
 ReactDOM.render(
     <Provider store={store}>
