@@ -3,7 +3,7 @@ export function fetchCats() {
         dispatch({ type: "cats/catsLoading" }); // let the store know that we are data is loading
         fetch("https://learn-co-curriculum.github.io/cat-api/cats.json")
             .then(response => response.json())
-            .then(json => dispatch({ type: "cats/catsLoading", payload: json.images }))
+            .then(json => dispatch({ type: "cats/catsLoaded", payload: json.images }))
     }
 }
 
