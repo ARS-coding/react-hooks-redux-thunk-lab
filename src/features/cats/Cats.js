@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCats } from "./catsSlice";
+import CatList from "./CatList";
 
 function Cats() {
   const dispatch = useDispatch();
-  const arrayOfImagesObject = useSelector(state => state.entities);
+  const catPics = useSelector(state => state.entities);
   
   useEffect(() => {
     dispatch(fetchCats());
@@ -13,7 +14,7 @@ function Cats() {
   return (
     <div>
       <h1>CatBook</h1>
-      {/* add CatList component here */}
+      <CatList catPics={catPics} />
     </div>
   );
 }
